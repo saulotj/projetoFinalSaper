@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { HelloWorld } from './components/HelloWorld';
+import { Agenda } from './components/Agenda';
 import { NavbarComponent } from './components/Navbar';
-import { Sidebar } from './components/Sidebar';
+import { Sidebar } from './components/Sidebar/Sidebar';
 import { Home } from './templates/Home';
 
 const root = ReactDOM.createRoot(
@@ -16,7 +16,7 @@ root.render(
     <NavbarComponent/>
     <Home>
       <Sidebar/>
-      <HelloWorld/>
+      <Agenda/>
     </Home>
   </React.StrictMode>
 );

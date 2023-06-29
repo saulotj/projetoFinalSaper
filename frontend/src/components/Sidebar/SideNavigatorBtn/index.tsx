@@ -1,6 +1,6 @@
 import style from './style.module.scss';
-import arrowNext from '../../public/img/arrowNext.svg';
-import arrowPrevious from '../../public/img/arrowPrevious.svg';
+import arrowNext from '../../../public/img/arrowNext.svg';
+import arrowPrevious from '../../../public/img/arrowPrevious.svg';
 
 export const SideNavigatorBtn = () => {
     return (
