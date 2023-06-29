@@ -1,0 +1,21 @@
+.agenda {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(8, 1fr);
+}
+
+.columnHeader {
+    text-transform: uppercase;
+    text-align: center;
+    border: 1px solid black;
+    padding: 1em;
+}
+
+/* .column {
+    & div {
+        text-align: center;
+        border: 1px solid black;
+        padding: 1em;
+        background-color: yellow;
+    }
+} */

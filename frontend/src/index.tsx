@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Agenda } from './components/Agenda';
+import { Agenda } from './components/Agenda/Agenda';
 import { NavbarComponent } from './components/Navbar';
 import { Sidebar } from './components/Sidebar/Sidebar';
 import { Home } from './templates/Home';
