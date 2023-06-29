@@ -1,0 +1,18 @@
+.user_icon {
+    max-width: 2rem;
+    max-height: 2rem;
+    align-self: center;
+    border: 1px solid black;
+    border-radius: 100%;
+}
+
+.today_date {
+    &::first-letter {
+        text-transform: capitalize;
+    }
+    padding: 1.1rem;
+    font-size: 1.1rem;
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+}
