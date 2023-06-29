@@ -2,31 +2,29 @@ import { useState } from 'react';
 import style from './style.module.scss';
 import { AgendaHelper } from '../../../Helper/AgendaHelper';
 import { horarioEnum } from '../../../enum/horarios';
-import { ColumnCell } from '../ColumnCell';
+import { CalendarHelper } from '../../../Helper/CalendarHelper';
+import { ColumnContainer } from '../ColumnContainer';
 
 export const Agenda = () => {
     const [horarios, setHorarios] = useState(AgendaHelper.getHorarios(horarioEnum));
+    const [mainDate, setMainDate] = useState(new Date());
+    const [date, setDate] = useState(CalendarHelper.updateDate(mainDate));
+    
+    const mockCell = Array.apply(null, Array(horarios.length))
 
-    const Column = ({elements}: any) => {
-        const body: any = [];
-        elements.map((el: any) => {
-            body.push(<ColumnCell key={el}>
-                {el}
-            </ColumnCell>);
-        })
-        return <div className={style.column}>{body}</div>
+    for (let i = 0; i < mockCell.length; i ++) {
+        mockCell[i] = '';
     }
 
     return (
         <div className={style.agenda}>
-            {/* column */}
-            <div className={style.column}>
-                <div className={`${style.row} ${style.columnHeader}`}>
-                    Horários
-                </div>
-                <Column elements={horarios}></Column>
-            </div>
-
+            <ColumnContainer content={horarios} title={"Horários"}/>
+            <ColumnContainer content={mockCell} title={date.day}/>
+            <ColumnContainer content={mockCell} title={date.day}/>
+            <ColumnContainer content={mockCell} title={date.day}/>
+            <ColumnContainer content={mockCell} title={date.day}/>
+            <ColumnContainer content={mockCell} title={date.day}/>
+            <ColumnContainer content={mockCell} title={date.day}/>
         </div>
     )
 };

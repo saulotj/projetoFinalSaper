@@ -1,11 +1,11 @@
 import style from './style.module.scss';
-import { SidebarCalendarHelper } from '../../../Helper/SideCalendarHelper';
+import { CalendarHelper } from '../../../Helper/CalendarHelper';
 import { SidebarCalendarDay } from '../SidebarCalendarDay';
 import { useEffect, useState } from 'react';
 
 export const SidebarCalendar = () => {
     const [mainDate, setMainDate] = useState(new Date());
-    const [date, setDate] = useState(SidebarCalendarHelper.updateDate(mainDate));
+    const [date, setDate] = useState(CalendarHelper.updateDate(mainDate));
     
     const SideCalendar = () => {
         const Component = [];
@@ -26,7 +26,7 @@ export const SidebarCalendar = () => {
     }
 
     useEffect(() => {
-        setDate(SidebarCalendarHelper.updateDate(mainDate));
+        setDate(CalendarHelper.updateDate(mainDate));
     }, [mainDate]);
 
     return (

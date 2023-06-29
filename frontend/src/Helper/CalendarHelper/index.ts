@@ -1,4 +1,4 @@
-export const SidebarCalendarHelper = {
+export const CalendarHelper = {
     isValidDate : (date : Date) => {
         return date instanceof Date && !isNaN(date.getTime());
     },
@@ -16,7 +16,7 @@ export const SidebarCalendarHelper = {
             year: mainDate.getFullYear(),
             month: mainDate.getMonth(),
             day: mainDate.getDate(),
-            numDaysInMonth: SidebarCalendarHelper.daysInMonth(mainDate.getMonth(), mainDate.getFullYear())
+            numDaysInMonth: CalendarHelper.daysInMonth(mainDate.getMonth(), mainDate.getFullYear())
         };
     }
 }
