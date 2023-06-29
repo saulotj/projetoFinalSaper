@@ -4,6 +4,8 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { HelloWorld } from './components/HelloWorld';
 import { NavbarComponent } from './components/Navbar';
+import { Sidebar } from './components/Sidebar';
+import { Home } from './templates/Home';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -12,7 +14,10 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <NavbarComponent/>
-    <HelloWorld/>
+    <Home>
+      <Sidebar/>
+      <HelloWorld/>
+    </Home>
   </React.StrictMode>
 );
 
