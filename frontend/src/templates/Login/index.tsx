@@ -1,28 +1,38 @@
-import { useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import style from './style.module.scss';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Api } from '../../api/Api';
 import { endpointEnum } from '../../enum/api/endpointEnum';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../store';
 
 export const Login = () => {
-  const [credentials, setCredentials] = useState({user:'', password:''});
+  const [credentials, setCredentials] = useState({ user: '', password: '' });
+  const navigate = useNavigate();
+  const auth = useContext(AuthContext);
 
   const handleOnChange = (e: any) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value })
   }
 
-  const handleOnSubmit = (e: any) => {
+  const handleOnSubmit = async (e: any) => {
     e.preventDefault();
+    
     const login = btoa(credentials?.user + ':' + credentials?.password);
 
     const config = {
       headers: {
         Authorization: 'Basic ' + login,
       }
-      
     }
-    Api.get(endpointEnum.getRootAdmin, config);
+
+    const response = await Api.get(endpointEnum.getRootAdmin, config);
+
+    if (response && response.status == 200) {
+      if (auth.setUser) auth.setUser(login);
+      navigate('/agenda');
+    };
   }
 
   return (
