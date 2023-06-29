@@ -5,6 +5,7 @@
 - Mauro Henrique;
 - Ana Beatriz da Silva;
 - Saulo de Tarso Jodas;
+- Francisco Dourado;
 ---
 ## Projeto:
     Sistema de agendamentos de consulta.
