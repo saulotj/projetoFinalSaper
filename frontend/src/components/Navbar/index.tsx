@@ -6,7 +6,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import userLogo from '../../public/img/user-96.png';
 import style from './style.module.scss';
 import { useContext, useState } from 'react';
-import { AuthContext } from '../../store';
+import { AuthContext } from '../../store/AuthContext';
 import { useNavigate } from 'react-router';
 
 export const NavbarComponent = () => {

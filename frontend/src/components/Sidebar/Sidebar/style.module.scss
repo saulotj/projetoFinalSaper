@@ -1,8 +1,10 @@
 .sidebar {
     width: 32%;
     max-width: 300px;
+    min-width: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: auto;
+    margin-left: 3vw;
+    margin-right: auto;
 }

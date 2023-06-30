@@ -6,7 +6,7 @@ import { CalendarHelper } from '../../../Helper/CalendarHelper';
 import { ColumnContainer } from '../ColumnContainer';
 import { Api } from '../../../api/Api';
 import { ApiConfig } from '../../../api/ApiConfig';
-import { AuthContext } from '../../../store';
+import { AuthContext } from '../../../store/AuthContext';
 
 //const login = auth.credentials;
 //const header = ApiConfig.getHeaderWithBasicLogin(login);

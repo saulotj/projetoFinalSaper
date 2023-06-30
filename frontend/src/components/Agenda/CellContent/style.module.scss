@@ -1,7 +1,17 @@
 .cellConsulta {
     border: 1px solid #1A73E8;
     border-radius: 18px;
-    padding: 0 2px;
+    padding: 0 5px;
     text-align: center;
     max-height: 50%;
+    &:hover{
+        cursor: pointer;
+        filter: brightness(1.1);
+    }
+}
+
+.agendada {
+    background-color: #218838;
+    color: white;
+    border: 1px solid white;
 }

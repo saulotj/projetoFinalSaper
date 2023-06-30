@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import { Api } from '../../api/Api';
 import { endpointEnum } from '../../enum/api/endpointEnum';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../store';
+import { AuthContext } from '../../store/AuthContext';
 import { ApiConfig } from '../../api/ApiConfig';
 
 export const Login = () => {
