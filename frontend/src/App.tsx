@@ -5,9 +5,10 @@ import { AuthContext, User } from "./store";
 
 export const App = () => {
     const [user, setUser] = useState<User>();
+    const [credentials, setCredentials] = useState();
 
     return (
-        <AuthContext.Provider value={{user, setUser}}>
+        <AuthContext.Provider value={{user, setUser, credentials, setCredentials}}>
             <MainRouter />
         </AuthContext.Provider>
     );

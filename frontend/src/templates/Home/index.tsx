@@ -1,3 +1,4 @@
+import { Outlet } from "react-router";
 import { Agenda } from "../../components/Agenda/Agenda";
 import { NavbarComponent } from "../../components/Navbar";
 import { Sidebar } from "../../components/Sidebar/Sidebar";
@@ -8,7 +9,7 @@ export const Home = () => {
             <NavbarComponent />
             <div className='d-flex'>
                 <Sidebar />
-                <Agenda />
+                <Outlet />
             </div>
         </>
     )

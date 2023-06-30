@@ -4,7 +4,7 @@ export const ColumnCell = (prop: any) => {
 
     return (
         <div className={style.cell}>
-            {prop.children}
+            {<div className={style.cellContent}>{prop.children}</div>}
         </div>
     )
 };

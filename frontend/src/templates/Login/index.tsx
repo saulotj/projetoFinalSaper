@@ -6,6 +6,7 @@ import { Api } from '../../api/Api';
 import { endpointEnum } from '../../enum/api/endpointEnum';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../store';
+import { ApiConfig } from '../../api/ApiConfig';
 
 export const Login = () => {
   const [credentials, setCredentials] = useState({ user: '', password: '' });
@@ -20,18 +21,16 @@ export const Login = () => {
     e.preventDefault();
     
     const login = btoa(credentials?.user + ':' + credentials?.password);
-
-    const config = {
-      headers: {
-        Authorization: 'Basic ' + login,
-      }
-    }
-
+    const config = ApiConfig.getHeaderWithBasicLogin(login)
+    
     const response = await Api.get(endpointEnum.getRootAdmin, config);
 
     if (response && response.status == 200) {
-      if (auth.setUser) auth.setUser(login);
-      navigate('/agenda');
+      if (auth.setUser && auth.setCredentials) {
+        auth.setUser(credentials.user)
+        auth.setCredentials(login);
+      };
+      navigate('/agenda/semana');
     };
   }
 

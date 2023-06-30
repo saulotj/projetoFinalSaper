@@ -3,8 +3,10 @@ import React from "react";
 export type User = {};
 
 type AuthProps = {
-    user?: User,
-    setUser?: (user: User | undefined) => void
+    user?: any,
+    setUser?: (user: User | undefined) => void,
+    credentials?: any,
+    setCredentials?:(credential: any) => void
 };
 
 const defaultValues: AuthProps = {}

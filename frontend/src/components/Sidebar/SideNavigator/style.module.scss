@@ -1,7 +1,20 @@
-.sideNavBtnContainer {
-    margin: 0 0px;
+$arrowBtnSize: 20px;
+$arrowMargin: 10px;
+
+.sideNavigator {    
+    width: 100%;
     text-align: center;
-    display: flex;
-    font-size: 0.9rem;
-    align-items: center;
 }
+
+.dropdownContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+}
+
+.dropdownBtn {
+    width: 100%;
+    max-width: 190px;
+}
+

@@ -1,4 +1,4 @@
-export const horarioEnum = {
+export const horarioEnum : any = {
     8 : "08:00",
     9 : "09:00",
     10 : "10:00",
