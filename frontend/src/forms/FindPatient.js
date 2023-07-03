@@ -16,7 +16,7 @@ const ProcuraPaciente = () => {
           setErrorMessage('Paciente não cadastrado');
         } else {
           setPaciente(response.data[0]);
-          setErrorMessage('');
+          setErrorMessage('Paciente não encontrado!');
         }
       } catch (error) {
         console.error(error);
