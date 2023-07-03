@@ -1,28 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const ProcuraMedico = () => {
+const ProcuraPaciente = () => {
   const [searchValue, setSearchValue] = useState('');
-  const [medico, setMedico] = useState(null);
+  const [paciente, setPaciente] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
-    const searchMedico = async () => {
+    const searchPaciente = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/medicos?name=${searchValue}&crm=${searchValue}`);
+        const response = await axios.get(`http://localhost:8080/pacientes?nome=${searchValue}&cpf=${searchValue}`);
 
         if (response.data.length === 0) {
-          setMedico(null);
-          setErrorMessage('Médico não cadastrado!');
+          setPaciente(null);
+          setErrorMessage('Paciente não cadastrado');
         } else {
-          setMedico(response.data[0]);
-          setErrorMessage('Médico não encontrado!');
+          setPaciente(response.data[0]);
+          setErrorMessage('');
         }
       } catch (error) {
         console.error(error);
       }
     };
- searchMedico();
+    searchPaciente();
   }, [searchValue]);
 
   const handleSearchChange = (e) => {
@@ -33,7 +33,7 @@ const ProcuraMedico = () => {
     <div>
       <form>
         <label>
-          Name or CRM:
+          Nome ou CPF:
           <input
             type="text"
             value={searchValue}
@@ -44,17 +44,18 @@ const ProcuraMedico = () => {
 
       {errorMessage && <p>{errorMessage}</p>}
 
-      {medico && (
+      {paciente && (
         <div>
-          <h2>Detalhes do médico:</h2>
-          <p>Nome: {medico.nome}</p>
-          <p>CRM: {medico.crm}</p>
-          <p>Especialidade: {medico.especialidade}</p>
-          <p>Telefone: {medico.telefone}</p>
+          <h2>Detalhes do Paciente</h2>
+          <p>Nome: {paciente.nome}</p>
+          <p>CPF: {paciente.cpf}</p>
+          <p>Endereço: {paciente.endereco}</p>
+          <p>Telefone: {paciente.telefone}</p>
+          <p>Email: {paciente.email}</p>
         </div>
       )}
     </div>
   );
 };
 
-export default ProcuraMedico;
+export default ProcuraPaciente;
