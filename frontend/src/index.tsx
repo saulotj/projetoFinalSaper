@@ -14,16 +14,12 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-<<<<<<< HEAD
     <FindDoctor/>
-    <HelloWorld/>
-=======
     <NavbarComponent/>
     <Home>
       <Sidebar/>
       <Agenda/>
     </Home>
->>>>>>> 8d152e1decc8a85905b656c125467a49e6ee6d74
   </React.StrictMode>
 );
 
