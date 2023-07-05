@@ -4,7 +4,6 @@ import { AgendaHelper } from '../../../Helper/AgendaHelper';
 import { horarioEnum } from '../../../enum/horarios';
 import { CalendarHelper } from '../../../Helper/CalendarHelper';
 import { ColumnContainer } from '../ColumnContainer';
-import { Api } from '../../../api/Api';
 import { ApiConfig } from '../../../api/ApiConfig';
 import { AuthContext } from '../../../store/AuthContext';
 
@@ -36,22 +35,6 @@ export const Agenda = () => {
         return await AgendaHelper.fetchWeek(date.year, date.month, date.day, weekLength, header);
     };
 
-    const TestDiv = () => {
-        return (
-            <div onClick={() => {
-                console.log(consultasByDay)
-            }}>aa</div>
-        )
-    }
-
-    const renderTests = () => {
-        const tests = [];
-        for (let i = 0; i < 5; i++) {
-            tests.push(<TestDiv key= {i}/>)
-        }
-        return tests;
-    }
-
     return (
         <div className={style.agenda}>
             <ColumnContainer isTimeCol={true} size={horarios.length} content={horarios} title={"Horários"} />
@@ -62,7 +45,6 @@ export const Agenda = () => {
                 }): 'Carregando'
             }
 
-            {renderTests()}
         </div>
     )
 };
