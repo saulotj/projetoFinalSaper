@@ -1,28 +1,39 @@
-import { fork } from "child_process";
+import React, { useState } from 'react';
 
+const LoginForm = () => {
+  const [Usuario, setUsuario] = useState('');
 
-function CreatLogin(){
+  const [password, setPassword] = useState('');
 
+  const handleUsuarioChange = (e) => {
+    setUsuario(e.target.value);
+  };
 
-    return(
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
 
-        <div className=" Container">
-            <form> 
-                <p>
-                    Login:
-                </p>
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Aqui você pode adicionar a lógica para autenticar o usuário
+    console.log('Usuario:', Usuario);
+    console.log('Password:', password);
+  };
 
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label>Usuario:</label>
+        <input type="text" value={Usuario} onChange={handleUsuarioChange} />
+      </div>
+      <div>
+        <label>Password:</label>
+        <input type="password" value={password} onChange={handlePasswordChange} />
+      </div>
+      <button type="submit">Login</button>
+    </form>
+  );
+};
 
-                <input type="text"> </input>
-            </form>   
-            
-                <p>
-                    Senha:
-                </p>
+export default LoginForm;
 
-
-                <input type="password"> </input>
-
-        </div>
-    )
-}
