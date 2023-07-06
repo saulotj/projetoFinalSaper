@@ -53,4 +53,9 @@ public class MedicoService {
 		medicoRepository.delete(medico);
 		return ResponseEntity.status(HttpStatus.OK).build();
 	}
+
+	public ResponseEntity<Object> findOne(Long id) {
+		Medico medico = medicoRepository.findById(id).orElseThrow();
+		return ResponseEntity.status(HttpStatus.OK).body(new MedicoResponseDTO(medico));
+	}
 }

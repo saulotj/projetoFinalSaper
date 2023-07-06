@@ -28,6 +28,11 @@ public class MedicoController {
 		return medicoService.findAll();
 	}
 	
+	@GetMapping("/{id}")
+	public ResponseEntity<Object> findOne(@PathVariable(name = "id") Long id) {
+		return medicoService.findOne(id);
+	}
+	
 	@PutMapping("/{id}")
 	public ResponseEntity<Object> update(@PathVariable(name = "id") Long id,
 										 @RequestBody MedicoRequestDTO medicoDTO) {
