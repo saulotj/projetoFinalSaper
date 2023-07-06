@@ -37,11 +37,11 @@ export const Agenda = () => {
 
     return (
         <div className={style.agenda}>
-            <ColumnContainer isTimeCol={true} size={horarios.length} content={horarios} title={"Horários"} />
+            <ColumnContainer isTimeCol={true} size={horarios?.length} content={horarios} title={"Horários"} />
 
             {consultasByDay.length > 0 ?
                 consultasByDay.map((day: any, index: number) => {
-                    return <ColumnContainer key={index} size={horarios.length} content={day.consulta} headerDay={day.data} />
+                    return <ColumnContainer key={index} size={horarios?.length} content={day.consulta} headerDay={day.data} />
                 }): 'Carregando'
             }
 
