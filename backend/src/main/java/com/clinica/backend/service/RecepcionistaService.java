@@ -56,9 +56,4 @@ public class RecepcionistaService {
 		
 		return ResponseEntity.status(HttpStatus.OK).body(new RecepcionistaResponseDTO(recepcionista));
 	}
-
-	public ResponseEntity<Object> findOne(Long id) {
-		Recepcionista recepcionista = recepcionistaRepository.findById(id).orElseThrow();
-		return ResponseEntity.status(HttpStatus.OK).body(new RecepcionistaResponseDTO(recepcionista));
-	}
 }

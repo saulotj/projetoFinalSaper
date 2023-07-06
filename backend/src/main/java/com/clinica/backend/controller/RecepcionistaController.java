@@ -27,11 +27,6 @@ public class RecepcionistaController {
 		return recepcionistaService.findAll();
 	}
 	
-	@GetMapping("/{id}")
-	public ResponseEntity<Object> findOne(@PathVariable(name = "id") Long id) {
-		return recepcionistaService.findOne(id);
-	}
-	
 	@PostMapping
 	public ResponseEntity<Object> insert(@Valid @RequestBody RecepcionistaRequestDTO recepcionistaDTO) {
 		return recepcionistaService.insert(recepcionistaDTO);

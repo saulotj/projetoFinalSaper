@@ -21,8 +21,6 @@ public class SecurityConfig {
 	@Autowired
 	LoggableUserRepository loggableUserRepository;
 	
-	
-	
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.httpBasic();
@@ -41,10 +39,9 @@ public class SecurityConfig {
 		.requestMatchers("/plano-saude/**").hasRole("ADM")
 		.requestMatchers("/medico/**").hasRole("ADM")
 		.requestMatchers("/calendario/**").hasRole("ADM")
-
+		
 		.anyRequest().denyAll();
-		http.cors();
-		http.csrf().disable();		
+		http.csrf().disable();
 		return http.build();
 	}
 	
