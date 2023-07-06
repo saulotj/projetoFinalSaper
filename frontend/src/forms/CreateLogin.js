@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const LoginForm = () => {
-  const [Usuario, setUsuario] = useState('');
+  const [usuario, setUsuario] = useState('');
 
   const [password, setPassword] = useState('');
 
@@ -15,8 +15,8 @@ const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aqui você pode adicionar a lógica para autenticar o usuário
-    console.log('Usuario:', Usuario);
+    // Aqui você pode add a lógica para autenticar o usuário
+    console.log('Usuario:', usuario);
     console.log('Password:', password);
   };
 
@@ -24,7 +24,7 @@ const LoginForm = () => {
     <form onSubmit={handleSubmit}>
       <div>
         <label>Usuario:</label>
-        <input type="text" value={Usuario} onChange={handleUsuarioChange} />
+        <input type="text" value={usuario} onChange={handleUsuarioChange} />
       </div>
       <div>
         <label>Password:</label>
