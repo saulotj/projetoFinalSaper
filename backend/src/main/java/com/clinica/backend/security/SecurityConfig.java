@@ -41,6 +41,7 @@ public class SecurityConfig {
 		.requestMatchers("/calendario/**").hasRole("ADM")
 		
 		.anyRequest().denyAll();
+		http.cors();
 		http.csrf().disable();
 		return http.build();
 	}

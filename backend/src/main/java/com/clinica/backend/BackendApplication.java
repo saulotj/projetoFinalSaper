@@ -5,6 +5,9 @@ import java.time.LocalDate;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.clinica.backend.dto.calendario.CalendarioRequestDTO;
 import com.clinica.backend.model.Administrador;
@@ -59,5 +62,16 @@ public class BackendApplication {
 		calendarioService.insert(calendarioRequestDTO);
 		//======== ==========
 	}
+
+	@Bean
+  public WebMvcConfigurer corsConfigurer() {
+    return new WebMvcConfigurer() {
+      @Override
+      public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**");
+        
+      }
+    };
+  }
 
 }
