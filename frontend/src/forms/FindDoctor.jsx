@@ -10,7 +10,10 @@ const FindDoctor = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.get(`http://localhost:8080/medicos?name=${searchValue}&crm=${searchValue}`);
+      const response = await axios.get(
+         `http://localhost:8080/medico?nome=${searchValue}&crm=${searchValue}`
+        
+      );
 
       if (response.data.length === 0) {
         setMedico(null);

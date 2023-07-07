@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 function App() {
   const novosPacientes = 'Cadastro de Paciente';
@@ -26,21 +27,15 @@ function App() {
     setProntuario: prontuario,
   };
 
-  //const enviarDados = (e) => {
-  // try {
-  //const response = await axios.post('/api/submit', Data);
-  // console.log(Data);
-  // } catch (error) {
-  //  console.error(error);
-  //  }
-  //}
   const enviarDados = async (e) => {
-    try {
-      console.log(formData); // Handle the API response
-    } catch (error) {
-      console.error(error);
+   try {
+  const response = await axios.post('localhost:8080/paciente', formData);
+   console.log(response.data);
+   } catch (error) {
+    console.error(error);
     }
-  };
+  }
+  
 
   return (
     <div className="App">

@@ -23,7 +23,7 @@ const CreateDoctorForm = () => {
     };
 
     try {
-      const response = await axios.post('http://localhost:8080/medicos', newMedico);
+      const response = await axios.post('http://localhost:8080/medico', newMedico);
       console.log(response.data);
       setName('');
       setUsername('');

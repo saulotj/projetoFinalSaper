@@ -18,7 +18,7 @@ function App() {
 
  const enviarDados = async (e) => {
   try {
- const response = await axios.post('localhost:8080/pacientes', formData);
+ const response = await axios.post('http://localhost:8080/paciente', formData);
   console.log(response.data);
   } catch (error) {
    console.error(error);

@@ -9,7 +9,7 @@ const ProcuraPaciente = () => {
   useEffect(() => {
     const searchPaciente = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/pacientes?nome=${searchValue}&cpf=${searchValue}`);
+        const response = await axios.get(`http://localhost:8080/paciente?nome=${searchValue}&cpf=${searchValue}`);
 
         if (response.data.length === 0) {
           setPaciente(null);

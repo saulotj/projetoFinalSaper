@@ -53,8 +53,56 @@ function App() {
             />
           </label>
         </div>
-        {/* Restante do formulário ... */}
-
+        <div className="promotion-formgroup">
+          <label>
+            Data:
+            <input
+              type="date"
+              value={data}
+              onChange={(e) => setData(e.target.value)}
+            />
+          </label>
+        </div>
+        <div className="promotion-formgroup">
+          <label>
+            Horario:
+            <input
+              type="time"
+              value={horario}
+              onChange={(e) => setHorario(e.target.value)}
+            />
+          </label>
+        </div>
+        <div className="promotion-formgroup">
+          <label>
+            Medico
+            <input
+              type="text"
+              value={medico}
+              onChange={(e) => setMedico(e.target.value)}
+            />
+          </label>
+        </div>
+        <div className="promotion-formgroup">
+          <label>
+            Convenio
+            <input
+              type="text"
+              value={observacoes}
+              onChange={(e) => setConvenio(e.target.value)}
+            />
+          </label>
+        </div>
+        <div className="promotion-formgroup">
+          <label>
+            Observações:
+            <input
+              type="text"
+              value={nomePaciente}
+              onChange={(e) => setObservacoes(e.target.value)}
+            />
+          </label>
+        </div>
         <div className="promotion-submit">
           <button type="submit">Agendar</button>
         </div>
