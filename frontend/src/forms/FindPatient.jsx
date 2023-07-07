@@ -5,16 +5,12 @@ const ProcuraPaciente = () => {
   const [searchValue, setSearchValue] = useState('');
   const [paciente, setPaciente] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
-  const headers = {
-    username: 'admin',
-    password: '123',
-    'Access-Control-Allow-Origin': '*'
-  };
+
 
   useEffect(() => {
     const searchPaciente = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/paciente?nome=${searchValue}&cpf=${searchValue}`, headers);
+        const response = await axios.get(`http://localhost:8080/paciente?nome=${searchValue}&cpf=${searchValue}`);
 
         if (response.data.length === 0) {
           setPaciente(null);

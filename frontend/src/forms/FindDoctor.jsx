@@ -5,15 +5,20 @@ const FindDoctor = () => {
   const [searchValue, setSearchValue] = useState('');
   const [medico, setMedico] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
+  const [updated, setUpdated] = useState(false);
 
   const handleSearch = async (e) => {
     e.preventDefault();
+    axios.defaults.headers.common['Authorization'] = 'Basic ' + btoa('admin:123');
+    axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+
+    if (!updated) {
+      console.log('Please enter a value before searching.');
+      return;
+    }
 
     try {
-      const response = await axios.get(
-         `http://localhost:8080/medico?nome=${searchValue}&crm=${searchValue}`
-        
-      );
+      const response = await axios.get(`http://localhost:8080/medico?nome=${searchValue}&crm=${searchValue}` );
 
       if (response.data.length === 0) {
         setMedico(null);
@@ -27,6 +32,11 @@ const FindDoctor = () => {
     }
   };
 
+  const handleInputChange = (e) => {
+    setSearchValue(e.target.value);
+    setUpdated(true);
+  };
+
   return (
     <div>
       <form onSubmit={handleSearch}>
@@ -35,7 +45,7 @@ const FindDoctor = () => {
           <input
             type="text"
             value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
+            onChange={handleInputChange}
           />
         </label>
         <button type="submit">Buscar</button>
