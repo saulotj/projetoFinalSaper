@@ -8,13 +8,15 @@ import Popup from 'reactjs-popup';
 import CadastrarPaciente from '../../../cadastrarNovoPaciente/cadastrarNovosPacientes';
 import axios from 'axios';
 
+
 export const SidebarOptions = () => {
 
   // Disable CORS globally for all requests
-axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+  axios.defaults.headers.common['Authorization'] = 'Basic ' + btoa('admin:123');
+  axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 
 // Set the username and password headers
-axios.defaults.headers.common['Authorization'] = 'Basic ' + btoa('admin:123');
+
 
   
 

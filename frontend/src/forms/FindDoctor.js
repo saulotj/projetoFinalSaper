@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 const ProcuraMedico = () => {
@@ -6,24 +6,23 @@ const ProcuraMedico = () => {
   const [medico, setMedico] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
 
-  useEffect(() => {
-    const searchMedico = async () => {
-      try {
-        const response = await axios.get(`http://localhost:8080/medico?nome=${searchValue}&crm=${searchValue}`);
+  const handleSearch = async (e) => {
+    e.preventDefault();
 
-        if (response.data.length === 0) {
-          setMedico(null);
-          setErrorMessage('Médico não cadastrado!');
-        } else {
-          setMedico(response.data[0]);
-          setErrorMessage('Médico não encontrado!');
-        }
-      } catch (error) {
-        console.error(error);
+    try {
+      const response = await axios.get(`http://localhost:8080/medico?nome=${searchValue}&crm=${searchValue}`);
+
+      if (response.data.length === 0) {
+        setMedico(null);
+        setErrorMessage('Médico não cadastrado!');
+      } else {
+        setMedico(response.data[0]);
+        setErrorMessage('');
       }
-    };
- searchMedico();
-  }, [searchValue]);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const handleSearchChange = (e) => {
     setSearchValue(e.target.value);
@@ -31,15 +30,16 @@ const ProcuraMedico = () => {
 
   return (
     <div>
-      <form>
+      <form onSubmit={handleSearch}>
         <label>
-          Name or CRM:
+          Nome ou CRM:
           <input
             type="text"
             value={searchValue}
             onChange={handleSearchChange}
           />
         </label>
+        <button type="submit">Buscar</button>
       </form>
 
       {errorMessage && <p>{errorMessage}</p>}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 const ProcuraPaciente = () => {
@@ -6,24 +6,25 @@ const ProcuraPaciente = () => {
   const [paciente, setPaciente] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
 
-  useEffect(() => {
-    const searchPaciente = async () => {
-      try {
-        const response = await axios.get(`http://localhost:8080/paciente?nome=${searchValue}&cpf=${searchValue}`);
+  const handleSearch = async (e) => {
+    e.preventDefault();
 
-        if (response.data.length === 0) {
-          setPaciente(null);
-          setErrorMessage('Paciente não cadastrado');
-        } else {
-          setPaciente(response.data[0]);
-          setErrorMessage('Paciente não encontrado!');
-        }
-      } catch (error) {
-        console.error(error);
+    try {
+      const response = await axios.get(`http://localhost:8080/paciente?nome=${searchValue}`);
+
+      if (response.data.length === 0) {
+        setPaciente(null);
+        setErrorMessage('Paciente não cadastrado');
+      } else {
+        setPaciente(response.data[0]);
+        setErrorMessage('');
+        console.log(response.data);
+
       }
-    };
-    searchPaciente();
-  }, [searchValue]);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const handleSearchChange = (e) => {
     setSearchValue(e.target.value);
@@ -31,7 +32,7 @@ const ProcuraPaciente = () => {
 
   return (
     <div>
-      <form>
+      <form onSubmit={handleSearch}>
         <label>
           Nome ou CPF:
           <input
@@ -40,6 +41,7 @@ const ProcuraPaciente = () => {
             onChange={handleSearchChange}
           />
         </label>
+        <button type="submit">Buscar</button>
       </form>
 
       {errorMessage && <p>{errorMessage}</p>}
